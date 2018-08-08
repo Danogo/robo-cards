@@ -12,9 +12,24 @@ class App extends React.Component {
     // state describes app and can change, allows communicate and pass dynamic data between components
     // usually parent component passes state as props to pure/dumb children components
     this.state = {
-      robots: robots,
+      robots: [],
       searchfield: ''
     }
+  }
+
+  componentDidMount() {
+   fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Request failed!');
+    }, networkError => console.log(networkError.message))
+    .then(users => {
+      this.setState({
+        robots: users
+      });
+    });
   }
 
   // my own method for App comontent
@@ -30,13 +45,17 @@ class App extends React.Component {
     const filteredRobots = this.state.robots.filter(robot => {
       return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
     }); 
-    return (
-      <div className="tc mw9-l center">
-        <h1 className="f-subheadline">RoboFriends</h1>
-        <SearchBox searchChange={this.onSearchChange}/>
-        <CardList robots={filteredRobots}/>
-      </div>
-    );
+    if (this.state.robots.length === 0) {
+      return <h1 className="f-subheadline tc">LOADING</h1>
+    } else {
+      return (
+        <div className="tc mw9-l center">
+          <h1 className="f-subheadline">RoboFriends</h1>
+          <SearchBox searchChange={this.onSearchChange}/>
+          <CardList robots={filteredRobots}/>
+        </div>
+      );
+    }
   }
  
 };

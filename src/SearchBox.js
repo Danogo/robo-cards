@@ -7,7 +7,7 @@ return (
     <input 
       className="pa3 ba b--green bg-lightest-blue" 
       type="search" 
-      placeholder="robot name" 
+      placeholder="search robots" 
       onChange={searchChange}
     />
   </div>
