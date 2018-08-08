@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from './Card';
-import { robots } from './robots';
 
-const CardList = () => {
+// destructurin robots property from props, robots = props.robots
+const CardList = ({robots}) => {
   return (
     <div>
       {
