@@ -2,7 +2,7 @@ import React from 'react';
 // or import React, {Component} from 'react', and then Component instead of React.Component
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-import { robots } from './robots';
+import Scroll from './Scroll';
 import './App.css';
 
 class App extends React.Component {
@@ -52,7 +52,9 @@ class App extends React.Component {
         <div className="tc mw9-l center">
           <h1 className="f-subheadline">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange}/>
-          <CardList robots={filteredRobots}/>
+          <Scroll>
+            <CardList robots={filteredRobots}/>
+          </Scroll>
         </div>
       );
     }
