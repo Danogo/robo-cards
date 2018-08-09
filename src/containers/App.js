@@ -3,6 +3,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
     }
   }
 
+  // after running 'constructor' and 'render' initial dom react runs componentDidMount, where I fetch data for robots and then render again after changing state
   componentDidMount() {
    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => {
@@ -54,7 +56,9 @@ class App extends React.Component {
           <h1 className="f-subheadline">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange}/>
           <Scroll>
-            <CardList robots={filteredRobots}/>
+            <ErrorBoundary>
+              <CardList robots={filteredRobots}/>
+            </ErrorBoundary>
           </Scroll>
         </div>
       );
