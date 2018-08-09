@@ -1,8 +1,8 @@
 import React from 'react';
 // or import React, {Component} from 'react', and then Component instead of React.Component
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 import './App.css';
 
 class App extends React.Component {
@@ -41,11 +41,12 @@ class App extends React.Component {
 
   // built-in React render method
   render() {
+    const {robots, searchfield} = this.state;
     // filter array, if robot name includes text from searchfield add it to new array
-    const filteredRobots = this.state.robots.filter(robot => {
-      return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    const filteredRobots = robots.filter(robot => {
+      return robot.name.toLowerCase().includes(searchfield.toLowerCase());
     }); 
-    if (this.state.robots.length === 0) {
+    if (robots.length === 0) {
       return <h1 className="f-subheadline tc">LOADING</h1>
     } else {
       return (
