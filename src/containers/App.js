@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   // my own method for App comontent
-  // I'm using arrow function instead of class method syntax (onSearchChange(){}) to avoid 'this' pointing to input during execution, arrow functions don't create new execution context
+  // I'm using arrow function instead of class method syntax (onSearchChange(){}) to avoid 'this' pointing to input during execution, arrow functions inherit 'this' from lexical scope they're defined in, don't have own 'this'
   onSearchChange = (event) => {
     // we have to use seState method to change the state
     this.setState({searchfield: event.target.value});
