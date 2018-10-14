@@ -20,6 +20,7 @@ class App extends React.Component {
 
   // after running 'constructor' and 'render' initial dom react runs componentDidMount, where I fetch data for robots and then render again after changing state
   componentDidMount() {
+    console.log(this.props.store.getState());
    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => {
       if (response.ok) {
