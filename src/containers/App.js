@@ -6,52 +6,58 @@ import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { connect } from 'react-redux';
 import './App.css';
-import { setSearchField} from '../actions';
+import { setSearchField, reqRobots } from '../actions';
 
 // we inform App that it will receive searchField prop from the searchRobots reducer
 // mapStateToProps tells what part of state it has to listen for and send down as a prop
 const mapStateToProps = state => {
   return {
-    // because we have one reducer we just take it from state.searchField instead of state.searchRobots.searchField (like would be in case we we had multiple reducers)
-    searchField: state.searchField
+    // because we have one reducer we just take it from state.searchField instead of state.searchRobots.searchField (like would be in case we we had multiple reducers), edit: now we have multiple reducers
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error
   }
 };
 // dispatch is used to send actions to reducer, so we are returning an object that contains all of our actions
 // mapDispatchToProps says what props are the actions that need to get dispatched
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: event => dispatch(setSearchField(event.target.value))
+    onSearchChange: event => dispatch(setSearchField(event.target.value)),
+    // here because we are returning a function in dispatch, not an object like above, thunk middleware will be triggered and recognize it as an async function this way and inject dispatch function to the reqRobots so it can use it
+    onRequestRobots: () => dispatch(reqRobots())
   }
 }
 
 class App extends React.Component {
   // built-in constructor method
-  constructor() {
-    super();
-    // state describes app and can change, allows communicate and pass dynamic data between components
-    // usually parent component passes state as props to pure/dumb children components
-    this.state = {
-      robots: []
-      // edit redux: we don't need it anymore, we get it from the redux
-      // searchfield: ''
-    }
-  }
+  // constructor() {
+  //   super();
+  //   // state describes app and can change, allows communicate and pass dynamic data between components
+  //   // usually parent component passes state as props to pure/dumb children components
+  //   this.state = {
+  //     // robots: []
+  //     // searchfield: ''
+  //   }
+  // }
+  // edit: we dont need cosntructor, we dont have state here, we use props from redux store
 
   // after running 'constructor' and 'render' initial dom react runs componentDidMount, where I fetch data for robots and then render again after changing state
   componentDidMount() {
-    console.log(this.props.store);
-   fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Request failed!');
-    }, networkError => console.log(networkError.message))
-    .then(users => {
-      this.setState({
-        robots: users
-      });
-    });
+  //   console.log(this.props.store);
+  //  fetch('https://jsonplaceholder.typicode.com/users')
+  //   .then(response => {
+  //     if (response.ok) {
+  //       return response.json();
+  //     }
+  //     throw new Error('Request failed!');
+  //   }, networkError => console.log(networkError.message))
+  //   .then(users => {
+  //     this.setState({
+  //       robots: users
+  //     });
+  //   });
+    this.props.onRequestRobots();
   }
 
   // my own method for App comontent
@@ -64,14 +70,15 @@ class App extends React.Component {
 
   // built-in React render method
   render() {
-    const {robots} = this.state;
-    const { searchField, onSearchChange } = this.props;
+    // const {robots} = this.state;
+    const { searchField, onSearchChange, robots, isPending } = this.props;
     // edit redux: we don't need searchfield from this.state anymore, we get it from redux as a prop, also we are using now onSearchChange instead of this.onSearchChange method
     // filter array, if robot name includes text from searchfield add it to new array
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     }); 
-    if (robots.length === 0) {
+    // if (robots.length === 0) {
+    if (isPending) {
       return <h1 className="f-subheadline tc">LOADING</h1>
     } else {
       return (
