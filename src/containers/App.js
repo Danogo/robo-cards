@@ -7,6 +7,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { connect } from 'react-redux';
 import './App.css';
 import { setSearchField, reqRobots } from '../actions';
+import Header from '../components/Header';
 
 // we inform App that it will receive searchField prop from the searchRobots reducer
 // mapStateToProps tells what part of state it has to listen for and send down as a prop
@@ -83,7 +84,7 @@ class App extends React.Component {
     } else {
       return (
         <div className="tc mw9-l center">
-          <h1 className="f-subheadline">RoboFriends</h1>
+          <Header/>
           <SearchBox searchChange={onSearchChange}/>
           <Scroll>
             <ErrorBoundary>

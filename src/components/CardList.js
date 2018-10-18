@@ -3,6 +3,7 @@ import Card from './Card';
 
 // destructurin robots property from props, robots = props.robots
 const CardList = ({robots}) => {
+  console.log('Card list')
   return (
     <div>
       {
