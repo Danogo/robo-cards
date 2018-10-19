@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/robo-cards/static/css/1.88250343.chunk.css"
   },
   {
-    "revision": "e48b0a50340b5f930c1e8393b56b776c",
+    "revision": "99b7bc165ff7fb6dc750289bae47d065",
     "url": "/robo-cards/index.html"
   }
 ];
