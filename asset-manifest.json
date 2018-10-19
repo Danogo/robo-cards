@@ -1,7 +1,7 @@
 {
   "main.css": "/robo-cards/static/css/main.ad6080b1.chunk.css",
-  "main.js": "/robo-cards/static/js/main.436bb844.chunk.js",
-  "main.js.map": "/robo-cards/static/js/main.436bb844.chunk.js.map",
+  "main.js": "/robo-cards/static/js/main.efc1c064.chunk.js",
+  "main.js.map": "/robo-cards/static/js/main.efc1c064.chunk.js.map",
   "static/css/1.2d0c20aa.chunk.css": "/robo-cards/static/css/1.2d0c20aa.chunk.css",
   "static/js/1.ef648f4d.chunk.js": "/robo-cards/static/js/1.ef648f4d.chunk.js",
   "static/js/1.ef648f4d.chunk.js.map": "/robo-cards/static/js/1.ef648f4d.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/media/App.css": "/robo-cards/static/media/SEGA.12a3db8b.woff",
   "static/css/main.ad6080b1.chunk.css.map": "/robo-cards/static/css/main.ad6080b1.chunk.css.map",
   "index.html": "/robo-cards/index.html",
-  "precache-manifest.a50096470d49704cacef5e87827ed5e7.js": "/robo-cards/precache-manifest.a50096470d49704cacef5e87827ed5e7.js",
+  "precache-manifest.00ff4c435a2edce0bffeb93549e9cf6e.js": "/robo-cards/precache-manifest.00ff4c435a2edce0bffeb93549e9cf6e.js",
   "service-worker.js": "/robo-cards/service-worker.js"
 }
