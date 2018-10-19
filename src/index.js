@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger'
-// redux thunk is middleware for async actions
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import './index.css';
+import { createLogger } from 'redux-logger'
+import 'tachyons';
+// redux thunk is middleware for async actions
 import App from './containers/App'
 import registerServiceWorker from './registerServiceWorker';
 import { searchRobots, requestRobots } from './reducers';
-import 'tachyons';
+import './index.css';
 
 // create logger middleware to help monitor our app with logging info about actions
 const logger = createLogger();
