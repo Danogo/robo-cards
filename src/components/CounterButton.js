@@ -25,9 +25,8 @@ class CounterButton extends Component {
   }
 
   render() {
-    console.log('CounterButton')
     return (
-      <button aria-label='Increase count' color={this.props.color} onClick={this.updateCount}>
+      <button id='counter' color={this.props.color} onClick={this.updateCount} aria-label='Increase count'>
         Count: {this.state.count}
       </button>
     )

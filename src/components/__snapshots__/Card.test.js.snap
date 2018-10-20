@@ -20,7 +20,7 @@ ShallowWrapper {
       "children": Array [
         <img
           alt="Robot"
-          src="https://robohash.org/undefined?size=250x200"
+          src="https://robohash.org/undefined?size=200x200"
         />,
         <h2 />,
         <p />,
@@ -35,7 +35,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "Robot",
-          "src": "https://robohash.org/undefined?size=250x200",
+          "src": "https://robohash.org/undefined?size=200x200",
         },
         "ref": null,
         "rendered": null,
@@ -75,7 +75,7 @@ ShallowWrapper {
         "children": Array [
           <img
             alt="Robot"
-            src="https://robohash.org/undefined?size=250x200"
+            src="https://robohash.org/undefined?size=200x200"
           />,
           <h2 />,
           <p />,
@@ -90,7 +90,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "Robot",
-            "src": "https://robohash.org/undefined?size=250x200",
+            "src": "https://robohash.org/undefined?size=200x200",
           },
           "ref": null,
           "rendered": null,
