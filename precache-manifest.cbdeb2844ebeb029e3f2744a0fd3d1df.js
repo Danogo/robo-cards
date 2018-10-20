@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/robo-cards/static/js/runtime~main.f09d63a1.js"
   },
   {
-    "revision": "f5a11286aba71cab1b38",
-    "url": "/robo-cards/static/js/main.f5a11286.chunk.js"
+    "revision": "cfbd42665c1ae2f4e82b",
+    "url": "/robo-cards/static/js/main.cfbd4266.chunk.js"
   },
   {
     "revision": "957a8ce3563e36d484e9",
     "url": "/robo-cards/static/js/1.957a8ce3.chunk.js"
   },
   {
-    "revision": "f5a11286aba71cab1b38",
+    "revision": "cfbd42665c1ae2f4e82b",
     "url": "/robo-cards/static/css/main.8bf00946.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/robo-cards/static/css/1.88250343.chunk.css"
   },
   {
-    "revision": "99b7bc165ff7fb6dc750289bae47d065",
+    "revision": "5e8308d9e6851824b8ae71614d01307b",
     "url": "/robo-cards/index.html"
   }
 ];
