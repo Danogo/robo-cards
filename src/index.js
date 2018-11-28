@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger';
 import 'tachyons';
 // redux thunk is middleware for async actions
 import App from './containers/App'
